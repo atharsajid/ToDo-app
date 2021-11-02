@@ -3,6 +3,8 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:todo_app/color.dart';
 
+//floating animation button
+
 class Circlefloatingbtn extends StatefulWidget {
   const Circlefloatingbtn({Key? key}) : super(key: key);
 
@@ -96,3 +98,27 @@ class FlowMenuDelegate extends FlowDelegate {
   @override
   bool shouldRepaint(FlowMenuDelegate oldDelegate) => false;
 }
+
+// void showdeletedialog(BuildContext context) => showDialog(
+//       context: context,
+//       builder: (BuildContext context) => CupertinoAlertDialog(
+//         title: Text("Delete"),
+//         content: Text("Are You sure to Delete"),
+//         actions: [
+//           CupertinoDialogAction(
+//             child: TextButton(
+//               onPressed: () {},
+//               child: Text("No"),
+//             ),
+//           ),
+//           CupertinoDialogAction(
+//             child: TextButton(
+//               onPressed: () {
+//                 Navigator.pop(context);
+//               },
+//               child: Text("yes"),
+//             ),
+//           ),
+//         ],
+//       ),
+//     );

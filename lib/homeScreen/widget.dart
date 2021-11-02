@@ -4,7 +4,10 @@ import 'package:flutter/material.dart';
 appbar() {
   return AppBar(
     shadowColor: Colors.transparent,
-    actions: [Icon(Icons.person),Padding(padding: EdgeInsets.only(right: 10))],
+    actions: [
+      IconButton(onPressed: () {}, icon: Icon(Icons.person)),
+      Padding(padding: EdgeInsets.only(right: 10))
+    ],
   );
 }
 
@@ -12,3 +15,5 @@ appbar() {
 Widget drawer() {
   return Drawer();
 }
+
+
