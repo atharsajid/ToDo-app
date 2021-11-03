@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:todo_app/color.dart';
 
 import 'package:todo_app/homeScreen/widget.dart';
+import 'package:todo_app/recycle/recyclebin.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -13,7 +14,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int index = 0;
-  List<String> tasklist = [];
+
   String addtextfield = "";
 
   //isNotEmpty function
@@ -38,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: appbar(),
+        appBar: appbar("ToDo List"),
         drawer: drawer(),
         body: Column(
           children: [
@@ -82,6 +83,9 @@ class _HomeScreenState extends State<HomeScreen> {
           IconButton(
             onPressed: () {
               setState(() {
+                recycleList.add(
+                  tasklist[index],
+                );
                 tasklist.removeAt(index);
               });
             },
@@ -115,7 +119,10 @@ class _HomeScreenState extends State<HomeScreen> {
           addDialogbox(context);
         });
       },
-      child: const Icon(Icons.add),
+      child: Icon(
+        Icons.add,
+        color: white,
+      ),
     );
   }
 
@@ -187,3 +194,5 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       );
 }
+
+List<String> tasklist = [];

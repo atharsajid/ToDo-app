@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app/color.dart';
-import 'package:todo_app/homeScreen/btnClass.dart';
+import 'package:todo_app/homeScreen/btn.dart';
 
 //appbar widget
-appbar() {
+appbar(String pageName) {
   return AppBar(
     shadowColor: Colors.transparent,
     centerTitle: true,
     title: Text(
-      "ToDo List",
+      pageName,
       style: TextStyle(fontWeight: FontWeight.bold),
     ),
     actions: [
@@ -22,7 +22,9 @@ appbar() {
 Widget drawer() {
   return Drawer(
     child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        
         Container(
           width: double.infinity,
           decoration: BoxDecoration(
@@ -51,7 +53,7 @@ Widget drawer() {
                   ),
                   image: DecorationImage(
                     image: AssetImage(dpimage),
-                    fit: BoxFit.fill,
+                    fit: BoxFit.cover,
                   ),
                 ),
               ),
