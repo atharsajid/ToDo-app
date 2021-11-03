@@ -93,7 +93,7 @@ class _HomeScreenState extends State<HomeScreen> {
           IconButton(
             onPressed: () {
               setState(() {
-                EditDialogbox(context, index);
+                editDialogbox(context, index);
                 textedit.text = tasklist[index];
               });
             },
@@ -128,6 +128,9 @@ class _HomeScreenState extends State<HomeScreen> {
         builder: (BuildContext context) => AlertDialog(
           title: const Text("Add New Task"),
           content: TextField(
+            decoration: InputDecoration(
+              hintText: "Write your Text",
+            ),
             onChanged: (value) {
               addtextfield = value;
             },
@@ -138,23 +141,23 @@ class _HomeScreenState extends State<HomeScreen> {
               onPressed: () {
                 Navigator.pop(context);
               },
-              child: Text("Cancel"),
+              child: const Text("Cancel"),
             ),
             TextButton(
               onPressed: () {
                 textadd.text.isNotEmpty ? submit() : notsubmit();
               },
-              child: Text("Add"),
+              child: const Text("Add"),
             ),
           ],
         ),
       );
 
 //Add dialogbox
-  void EditDialogbox(BuildContext context, int index) => showDialog(
+  void editDialogbox(BuildContext context, int index) => showDialog(
         context: context,
-        builder: (BuildContext) => AlertDialog(
-          title: Text("Edit Your Task"),
+        builder: (BuildContext context) => AlertDialog(
+          title: const Text("Edit Your Task"),
           content: TextField(
             onChanged: (value) {
               addtextfield = value;
@@ -166,17 +169,19 @@ class _HomeScreenState extends State<HomeScreen> {
               onPressed: () {
                 Navigator.pop(context);
               },
-              child: Text("Cancel"),
+              child: const Text("Cancel"),
             ),
             TextButton(
               onPressed: () {
-                setState(() {
-                  tasklist[index] = addtextfield;
-                  textedit.clear();
-                  Navigator.pop(context);
-                });
+                setState(
+                  () {
+                    tasklist[index] = addtextfield;
+                    textedit.clear();
+                    Navigator.pop(context);
+                  },
+                );
               },
-              child: Text("Confirm"),
+              child: const Text("Confirm"),
             ),
           ],
         ),
